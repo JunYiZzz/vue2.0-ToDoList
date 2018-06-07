@@ -2,7 +2,7 @@
   <div class="todo">
     <h2>ToDoList</h2>
     <div class="t_input">
-      <span><input type="text" class="t_titles" placeholder="请输入事项。。。" v-model="text" @keyup.13="add()"></span>
+      <span><input type="text" class="t_titles" placeholder="请输入事项。。。" v-model="text" @keyup.13="add()" ></span>
       <span><button class="t_add" @click="add()">添加</button></span>
     </div>
     <div class="t-cont">
@@ -39,7 +39,8 @@ export default {
       } else {
         this.todolist.push({
           value: this.text,
-          state: false
+          state: false,
+          beforetext: this.text
         })
       }
       this.text = ''
@@ -58,6 +59,7 @@ export default {
       this.todolist.splice(index, 1)
     }
   },
+
   // 计算属性
   computed: {
     select () {
